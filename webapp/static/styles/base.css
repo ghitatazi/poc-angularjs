@@ -1,0 +1,172 @@
+
+.container-fluid {
+	max-width: 1248px;
+	min-width: 815px;
+	margin: 0 auto;
+}
+
+.container {
+	max-width: 1248px;
+	min-width: 710px;
+}
+
+.dropdown-menu-navbar {
+	position: relative;
+} 
+
+.title-divider {
+	width: 75%;
+	height: 5px;
+	background-color: #f1f1f1;
+	margin: 21px 0;
+}
+.title-divider.full-width {
+	width: 100%;
+}
+
+.spaced--container {
+	margin: 60px 0;
+}
+
+.header--navbar {
+	margin: 0;
+}
+
+.header--navbar .navbar-inner {
+	position: absolute;
+	z-index: 999;
+	background-image: none;
+	filter: none;
+	background-color: #f1f1f1; 
+	border: none;
+	border-top: 1px solid #f1f1f1;
+	box-shadow: none;
+	position: relative;
+	border-radius: 0;
+	padding: 0;
+	height: 93px;
+}
+
+.header--navbar .navbar-inner .fiducial-logo--container {
+  display: inline-block;
+  width: 232px;
+  height: 90px;
+}
+
+#poc-icon {
+	text-align:right;
+	position:static;
+	bottom:0;
+	font-size: 13px;
+	color: #3399FF;
+}
+
+.header--navbar .navbar-inner .fiducial-logo--container .fiducial-logo {
+  margin: 12px 0 6px;
+  width: 135px;
+  height: 65px;
+  display: inline-block;
+  text-decoration: none;
+  background: url("../img/fiducial.png") 0px 0px no-repeat;
+}
+
+.header--navbar .navbar-inner .navbar-link.active > a {
+  background-color: white;
+  box-shadow: none;
+}
+
+.header--navbar .navbar-inner .navbar-link > a {
+/*   color: black;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  text-shadow: none;
+  text-align:center;
+  font-size: 15px;
+  line-height: 14px;
+  padding: 38px 32px;
+  transition: all 0.15s;
+  -webkit-transition: all 0.15s;
+  -moz-transition: all 0.15s;
+  -o-transition: all 0.15s;
+  -ms-transition: all 0.15s;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f1f1f1; */
+  border-color: #f1f1f1;
+  border-style: solid;
+  border-width: 1px;
+  color: black;
+  font-family: "Montserrat",sans-serif;
+  font-size: 15px;
+  line-height: 61px;
+  text-align: center;
+  text-shadow: none;
+  text-transform: uppercase;
+  transition: all 0.15s ease 0s;
+}
+.header--navbar .navbar-inner .navbar-link:hover > a {
+  color: #3399FF;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #3399FF; /* #add8e6 */
+}
+
+.dropdown-menu > li:hover > a {
+	background-color:#3399FF;
+}
+
+a.fiducial-logo {
+}
+
+a.fiducial-logo span {
+  display: block;
+  width: 135px;
+  height: 61px;
+  opacity: 0;
+  -moz-transition: opacity 0.12s ease-in-out;
+  -webkit-transition: opacity 0.12s ease-in-out;
+  -o-transition: opacity 0.12s ease-in-out;
+}
+
+a:hover.fiducial-logo span {
+  opacity: 1;
+}
+
+.header--content {
+  background-color: #dedede;
+  padding: 60px 0;
+}
+.header--content .header--content-subtitle--link {
+  color: #2fc7f2;
+}
+.header--content .header--content-subtitle--link:hover {
+  text-decoration: none;
+  color: #2da2c3;
+}
+
+.bootstrap-switch-container span, .bootstrap-switch-container label {
+    height: 50px !important;
+    vertical-align: top;
+}
+
+.main-body--wrapper {
+  margin-top: 90px;
+  margin-bottom: 150px;
+}
+
+.row--container {
+  margin-bottom: 60px;
+}
+
+.body--container--row {
+  margin-bottom: 30px;
+}
+
+.clear {
+  clear: both;
+}
+
+.body--container--link {
+  color: #44474c;
+}

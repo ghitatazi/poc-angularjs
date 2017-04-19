@@ -1,0 +1,176 @@
+<div class="main-template">
+	<h2 class="complete-form-title" th:text="#{form.title}"></h2>
+	<div class="alert alert-success" ng-show="showSuccessAlert" th:text="#{form.success.alert}">
+		<button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')"
+		th:text="#{alert.close}"></button>
+	</div>
+	<div class="alert alert-danger" ng-show="showFailureAlert">
+		<button type="button" class="close" data-ng-click="switchBool('showFailureAlert')" th:text="#{alert.close}">
+		</button>
+		<strong th:text="#{alert.error}"></strong> {{ errorMessage }}
+	</div>
+	
+	<div>
+	
+	<form name="myForm" novalidate="" ng-submit="submitTheForm()" enctype="multipart/form-data"
+	class="form-horizontal form-presentation" role="form">
+	<br/>
+		<label class="title-form col-xs-12" th:text="#{facture.type}"></label>
+
+		<div class="form-group">
+			<label class="col-xs-3 control-label" th:text="#{document.type}"></label>
+			<div class="col-xs-6 col-md-4 nopadding" ng-init="scope = { isDisabled: true }">
+				<input type="text" class="form-control" name="type" ng-model="data.type" disabled="{{scope.isDisabled}}"/>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-xs-3 control-label" th:text="#{document.guid}"></label>
+			<div class="col-xs-6 col-md-4 nopadding">
+				<div class="input-group">
+					<input type="text" name="guid" ng-model="guid.value" class="form-control"/>
+					<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="generate()">
+					<i class="glyphicon glyphicon-retweet"></i></button></span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-xs-3 control-label" th:text="#{document.priority}"></label>
+			<div class="col-xs-6 col-md-4 nopadding">
+				<div class="input-group">
+					<input type="text" class="form-control" ng-model="data.priority" ng-init="data.priority=5" min="0" max="99"/>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" ng-click="incrementPriority()">
+						<i class="glyphicon glyphicon-plus"></i></button>
+						<button class="btn btn-default" type="button" ng-click="decrementPriority()">
+						<i class="glyphicon glyphicon-minus"></i></button>
+					</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-xs-3 control-label">
+				<button type="button" class="btn btn-circle" th:attr="tooltip=#{tooltip.champ.obligatoire.expression.reguliere}"
+				tooltip-placement="left" tooltip-animation="false" tooltip-trigger="mouseenter">
+				<i class="glyphicon glyphicon-info-sign"></i></button>
+				<label class="control-label" th:text="#{document.nom}"></label>
+			</div> 
+			<div class="col-xs-6 col-md-4 nopadding">
+				<input type="text" name="nameDoc"  ng-model="data.nomDocument" class="form-control"/>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<div class="col-xs-3 control-label">
+				<button type="button" class="btn btn-circle" th:attr="tooltip=#{tooltip.champ.obligatoire}"
+				tooltip-placement="left" tooltip-animation="false" tooltip-trigger="mouseenter">
+				<i class="glyphicon glyphicon-info-sign"></i></button>
+				<label class="control-label" th:text="#{document.date}"></label>
+			</div>
+			<div class="col-xs-3 col-md-2 nopadding">
+				<div class="input-group">
+					<input type="text" class="form-control" name="date" ng-model="date"
+					datepicker-popup="dd/MM/yyyy" is-open="datepickers.date"
+					datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+					th:attr="close-text=#{datepicker.close.text}, current-text=#{datepicker.current.text},
+					clear-text=#{datepicker.clear.text}"/>
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open($event, 'date')">
+						<i class="glyphicon glyphicon-calendar"></i></button></span>
+				</div>
+			</div>
+			<div class="col-xs-3 col-md-2 nopadding">
+				<div class="input-group">
+					<input sy-timepicker-popup="HH:mm:ss" class="form-control" name="temps" 
+					ng-model="temps" show-meridian="false" is-open="datepickers.temps"/>
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open($event, 'temps')">
+						<i class="glyphicon glyphicon-time"></i></button></span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-xs-3 control-label" th:text="#{document.createur}"></label>
+			<div class="col-xs-6 col-md-4 nopadding">
+				<input type="text" name="creator"  ng-model="data.createur" class="form-control"/>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-xs-3 control-label" th:text="#{document.titre}"></label>
+			<div class="col-xs-6 col-md-4 nopadding">
+				<input type="text" name="title"  ng-model="data.titre" class="form-control"/>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-xs-3 control-label" th:text="#{document.description}"></label>
+			<div class="col-xs-6 col-md-4 nopadding">
+				<input type="text" name="description" ng-model="data.description" class="form-control"/>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-xs-3 control-label" th:text="#{document.auteur}"></label>
+			<div class="col-xs-6 col-md-4 nopadding">
+				<input type="text" name="author"  ng-model="data.auteur" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-xs-3 control-label">
+				<button type="button" class="btn btn-circle" 
+				th:attr="tooltip=#{tooltip.champ.numero.facture}"
+				tooltip-placement="left" tooltip-animation="false" tooltip-trigger="mouseenter">
+				<i class="glyphicon glyphicon-info-sign"></i></button>
+				<label class="control-label" th:text="#{facture.numero}"></label>
+			</div>
+			<div class="col-xs-6 col-md-4 nopadding">
+				<input type="text" name="numFacture"  ng-model="data.numeroFacture" class="form-control"/>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-xs-3 control-label">
+				<button type="button" class="btn btn-circle" th:attr="tooltip=#{tooltip.champ.obligatoire}"
+				tooltip-placement="left" tooltip-animation="false" tooltip-trigger="mouseenter">
+				<i class="glyphicon glyphicon-info-sign"></i></button>
+				<label class="control-label" th:text="#{facture.nom.client}"></label>
+			</div>
+			<div class="col-xs-6 col-md-4 nopadding">
+				<input type="text" name="clientName"  ng-model="data.nomClient" class="form-control"/>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-xs-3 control-label">
+				<button type="button" class="btn btn-circle" th:attr="tooltip=#{tooltip.champ.non.reference}"
+				tooltip-placement="left" tooltip-animation="false" tooltip-trigger="mouseenter">
+				<i class="glyphicon glyphicon-info-sign"></i></button>
+				<label class="control-label" th:text="#{facture.inconnu}"></label>
+			</div>
+			<div class="col-xs-6 col-md-4 nopadding">
+				<input type="text" name="inconnu"  ng-model="data.inconnu" class="form-control"/>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-xs-3 control-label" th:text="#{document.contenu}"></label>
+			<div class="col-xs-3 nopadding">
+				<input type="file" ng-file-select="onFileSelect($files)" class="form-control-modified"/>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-xs-3 control-label"></label>
+			<div class="col-xs-6 col-md-4 nopadding">
+			<input type="submit" id="submit" ng-model="submitButton" class="btn btn-primary button-submit-form" th:value="#{form.button.submit}"/>
+		</div>
+		</div>
+
+	</form>
+	</div>
+</div>

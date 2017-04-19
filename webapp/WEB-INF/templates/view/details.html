@@ -1,0 +1,112 @@
+<div class="row-fluid">
+		<div class="pull-right">
+			<button ng-click="download(document.guid)" class="btn btn-default" ng-disabled="!document.contentType"
+			th:text="#{details.button.download}"></button>
+			<button ng-click="getTechnicalDetails(document.guid)" class="btn btn-primary"
+			th:text="#{details.button.show.details.techniques}"></button>
+		</div>
+	<div class="span12">
+		<h1 class="index-page--title" th:text="#{details.title}"></h1>
+		<p class="index-page--subtitle"></p>
+	</div>
+	
+	<div class="alert alert-danger alert-details" ng-show="!document.guid">
+		<button type="button" class="close" data-ng-click="switchBool('showFailureAlert')" th:text="#{alert.close}"></button>
+		<strong th:text="#{alert.error}"></strong> {{ errorMessage }}
+	</div>
+</div>
+
+<br/>
+
+	<div class="main-template">
+
+		<dl class="dl-horizontal" ng-show="document.guid">
+			<dt th:text="#{document.guid}"></dt>
+			<dd>{{ document.guid }}</dd>
+		</dl>
+	
+		<dl class="dl-horizontal" ng-show="document.nom">
+			<dt th:text="#{document.nom}"></dt>
+			<dd>{{ document.nomDocument }}</dd>
+		</dl>
+	
+		<dl class="dl-horizontal" ng-show="document.date">
+			<dt th:text="#{document.date}"></dt>
+			<dd>{{ document.date | date:'dd/MM/yyyy HH:mm:ss'}}</dd>
+		</dl>
+	
+		<dl class="dl-horizontal" ng-show="document.priorite">
+			<dt th:text="#{document.priority}"></dt>
+			<dd>{{ document.priority }}</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.titre">
+			<dt th:text="#{document.titre}"></dt>
+			<dd>{{ document.titre }}</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.description">
+			<dt th:text="#{document.description}"></dt>
+			<dd>{{ document.description }}</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.auteur">
+			<dt th:text="#{document.auteur}"></dt>
+			<dd>{{ document.auteur }}</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.createur">
+			<dt th:text="#{document.createur}"></dt>
+			<dd>{{ document.createur }}</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.contentType">
+			<dt th:text="#{document.contentType}"></dt>
+			<dd>{{ document.contentType }}</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.contentType">
+			<dt th:text="#{document.contentLength}"></dt>
+			<dd>{{ document.contentLength }}</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.avancement">
+			<dt th:text="#{note.avancement}"></dt>
+			<dd>{{ document.avancement }}</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.numeroFacture">
+			<dt th:text="#{facture.numero}"></dt>
+			<dd>{{ document.numeroFacture }}</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.nomClient">
+			<dt th:text="#{facture.nom.client}"></dt>
+			<dd>{{ document.nomClient }}</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.dateReunion">
+			<dt th:text="#{compte.rendu.date.reunion}"></dt>
+			<dd>{{ document.dateReunion | date:'dd/MM/yyyy HH:mm:ss'}}</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.numCandidats">
+			<dt th:text="#{compte.rendu.numero.candidats}"></dt>
+			<dd>
+				<ul class="list-details">
+					<li ng-repeat="numCandidat in document.numCandidats | orderBy:'toString()'">{{ numCandidat }}</li>
+				</ul>
+			</dd>
+		</dl>
+		
+		<dl class="dl-horizontal" ng-show="document.participants">
+			<dt th:text="#{compte.rendu.participants}"></dt>
+			<dd>
+				<ul class="list-details">
+					<li ng-repeat="participant in document.participants | orderBy:'toString()'">{{ participant }}</li>
+				</ul>
+			</dd>
+		</dl>
+		
+	</div>
+

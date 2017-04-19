@@ -1,0 +1,100 @@
+
+h1 {
+	font-size: 18px;
+	line-height: 30px;
+	font-family: "Arial Black",Gadget, sans-serif;
+}
+
+h2 {
+	font-size: 18px;
+	font-weight: inherit;
+	line-height: 24px;
+	margin-bottom: 0px;
+	font-family: "Arial Black",Gadget, sans-serif;
+}
+
+h3 {
+	font-size: 16px;
+	line-height: 24px;
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+
+ul[datepicker-popup-wrap] > li > .btn-group > button.btn-info {
+	display: none;
+}
+
+.navbar .nav .dropdown-toggle .caret {
+	margin-left: 13px;
+	margin-top: 8px;
+}
+
+.nav-tabs:before, .nav-pills:before, .nav-tabs:after, .nav-pills:after {
+	margin-top: -20px;
+}
+
+.col-guid {
+	width: 300px;
+}
+
+.nav > li {
+	display: inline-table;
+	position: static;
+}
+
+.document-title-list {
+	width:10%;
+	white-space:nowrap;
+}
+
+.document-name-list {
+	width:10%;
+	white-space:nowrap;
+}
+
+.document-type-list {
+	width:10%;
+	white-space:nowrap;
+}
+
+.title-value {
+	color: #999;
+}
+
+#switch-li {
+	line-height: 14px;
+	padding: 20px 34px;
+}
+
+.btn-circle {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	padding: 6px 0;
+	font-size: 12px;
+	line-height: 1.428571429;
+	border-radius: 15px;
+	background-color: #f0e9d6;
+}
+
+.list-details {
+	padding-left: 12px;
+}
+
+
+.table-date {
+	white-space:nowrap;
+}
+
+.table-buttons {
+	text-align:right;
+	width:300px;
+}
+
+.table-row-position {
+	vertical-align:center;
+}
+
+.alert-details {
+	width:1085px;
+}

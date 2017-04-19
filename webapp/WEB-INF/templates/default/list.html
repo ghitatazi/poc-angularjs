@@ -1,0 +1,56 @@
+<div class="row-fluid">
+
+
+
+</div>
+
+<div class="container">
+	<div class="main-template">
+	
+		<h1 class="index-page--title" th:text="#{table.title}"></h1>
+		<br/>
+		<div class="alert alert-info" ng-show="alertNoExistingDocuments">
+			<button type="button" class="close" data-ng-click="switchBool('alertNoExistingDocuments')" th:text="#{alert.close}">
+			</button>
+			<em th:text="#{alert.no.existing.documents}"></em>
+		</div>
+
+		<div class="alert alert-success" ng-show="alertMessage">
+			<button type="button" class="close" data-ng-click="switchBool('alertMessage')" th:text="#{alert.close}">
+			</button>
+			<p>{{ alertMessage }}</p>
+		</div>
+		<table class="table table-hover" ng-show="documents.length">
+			<thead>
+				<tr>
+					<th th:text="#{table.field.type}"></th>
+					<th class="col-guid" th:text="#{table.field.guid}"></th>
+					<th th:text="#{table.field.name}"></th>
+					<th th:text="#{table.field.title}"></th>
+					<th th:text="#{table.field.date}"></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="document in documents">
+					<td class="document-type-list">{{ document.typeList }}</td>
+					<td>{{ document.guid }}</td>
+					<td class="document-name-list" >{{ document.nomDocument }}</td>
+					<td class="document-title-list" ng-class="{'title-value': !document.titre}">
+					{{ document.titre || "n/a" }}
+					</td>
+					<td class="table-date">{{ document.date | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+					<td class="table-buttons">
+						<div>
+						<button ng-click="showDetails(document)" class="btn btn-primary" th:text="#{table.button.details}"></button>
+						<button ng-click="download(document.guid)" class="btn btn-default" ng-disabled="!document.contentType"
+						th:text="#{table.button.download}"></button>
+						<button ng-click="deleteFile(document.guid)" class="btn btn-default"
+						th:text="#{table.button.delete}"></button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

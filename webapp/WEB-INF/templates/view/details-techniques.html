@@ -1,0 +1,36 @@
+<div class="row-fluid">
+	<div class="pull-right">
+		<button ng-click="download(document.guid)" class="btn btn-default" ng-disabled="!document.contentType"
+		th:text="#{details.button.download}"></button>
+		<button ng-click="getDetails(document.guid, document)" class="btn btn-primary" th:text="#{details.button.show.details}"></button>
+	</div>
+	<div class="span12">
+		<h1 class="index-page--title" th:text="#{details.technical.title}"></h1>
+		<p class="index-page--subtitle"></p>
+	</div>
+</div>
+
+<br/>
+
+	<div class="main-template">
+		
+		<dl class="dl-horizontal">
+			<dt th:text="#{document.type}"></dt>
+			<dd>{{ document.type }}</dd>
+		</dl>
+			
+		<dl class="dl-horizontal">
+			<dt th:text="#{document.proprietes}"></dt>
+			<dd>
+			<table>
+			<tr ng-repeat="(key, value) in list">
+				<td ng-class="{'title-value': !value}"> 
+				<strong>{{key}}:</strong>  {{value || "n/a"}}
+				</td>
+			</tr>
+			</table>
+			</dd>
+		</dl>
+
+	</div>
+
